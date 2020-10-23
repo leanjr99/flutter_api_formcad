@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_api_formcad/utils/responsive.dart';
+import 'package:flutter_api_formcad/widgets/avatar_button.dart';
 import 'package:flutter_api_formcad/widgets/circle.dart';
+import 'package:flutter_api_formcad/widgets/register_form.dart';
 
 class RegisterPage extends StatefulWidget {
   static const routeName = 'register';
@@ -65,16 +67,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                       SizedBox(height: responsive.dp(8)),
-                      ClipOval(
-                        child: Image.network(
-                          'https://www.w3schools.com/howto/img_avatar.png',
-                          width: responsive.wp(25),
-                          height: responsive.wp(25),
-                        ),
+                      AvatarButton(
+                        imageSize: responsive.wp(25),
                       )
                     ],
                   ),
                 ),
+                RegisterForm(),
                 Positioned(
                   left: 10,
                   top: 30,
@@ -83,7 +82,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     padding: EdgeInsets.all(10),
                     borderRadius: BorderRadius.circular(30),
                     child: Icon(Icons.arrow_back),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                 )
               ],
